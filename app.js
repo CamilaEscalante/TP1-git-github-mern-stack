@@ -6,6 +6,13 @@ const countries = require('./countries.json');
  */
 function getCountryByIso3(isoCode){
     //Complete with your code
+    let country = {};
+  for (let i = 0; i < countries.length; i++) {
+    if (isoCode === countries[i].iso3) {
+      country = countries[i];
+    }
+  }
+  return country;
 }
 
 /**
@@ -16,6 +23,18 @@ function getCountryByIso3(isoCode){
  */
 function getCountryTranslatedName(isoCode, language){
     //Complete with your code
+    let countryTranslate = {};
+  for (let i = 0; i < countries.length; i++) {
+    if (isoCode === countries[i].iso3) {
+      countryTranslate.isocode3 = countries[i].iso3;
+      for (lang in countries[i].translations) {
+        if (language === lang) {
+          countryTranslate.translate = countries[i].translations[lang];
+        }
+      }
+    }
+  }
+  return countryTranslate;
 }
 /**Get an array of all the countries with the specified subregion
  * @param  {string} subregion
@@ -23,6 +42,13 @@ function getCountryTranslatedName(isoCode, language){
  */
 function getCountriesBySubregion(subregion){
     //Complete with your code
+    const countrySub = {};
+  for (let i = 0; i < countries.length; i++) {
+    if (countries[i].subregion === subregion) {
+      countrySub[i] = countries[i];
+    }
+  }
+  return countrySub;
 }
 
 function main() {
